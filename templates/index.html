@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>TourSmart Kebumen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        .card {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-transparent">
+    <div class="container">
+        <span class="navbar-brand fw-bold">🌍 TourSmart Kebumen</span>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="text-center mb-4">
+                <h1 class="fw-bold">Temukan Wisata Terbaikmu</h1>
+                <p class="text-light">Berdasarkan preferensi pribadimu</p>
+            </div>
+
+            <div class="card shadow p-4 text-dark">
+                <form action="/hasil" method="post">
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nama Anda</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Masukkan nama" required>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        {% for key, value in fakta.items() %}
+                        <div class="col-md-6 mb-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="fakta" value="{{ key }}">
+                                <label class="form-check-label">{{ value }}</label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary btn-lg px-5">
+                            🔍 Rekomendasikan Wisata
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
